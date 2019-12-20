@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name arduino-game-console)(type KiCad)(uri ${KIPRJMOD}/arduino-game-console.pretty)(options "")(descr ""))
+)
