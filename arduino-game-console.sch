@@ -130,10 +130,8 @@ Text GLabel 7650 4100 0    50   Input ~ 0
 CLOCK
 Wire Wire Line
 	7800 4100 7650 4100
-Text GLabel 8750 2600 3    50   Input ~ 0
+Text GLabel 8950 2800 2    50   Input ~ 0
 CHAIN
-Wire Wire Line
-	8750 2300 8750 2600
 Text GLabel 7650 3900 0    50   Input ~ 0
 CHAIN
 Text GLabel 7700 2200 0    50   Input ~ 0
@@ -189,8 +187,6 @@ Wire Wire Line
 	8600 1800 9250 1800
 Wire Wire Line
 	8200 1400 8200 1600
-Wire Wire Line
-	8600 2300 8750 2300
 Wire Wire Line
 	8600 2200 8850 2200
 $Comp
@@ -508,4 +504,10 @@ Wire Wire Line
 	9750 2400 9950 2400
 Wire Wire Line
 	9750 2300 9950 2300
+NoConn ~ 8600 2300
+Wire Wire Line
+	8950 2800 8850 2800
+Wire Wire Line
+	8850 2800 8850 2700
+Connection ~ 8850 2700
 $EndSCHEMATC
