@@ -1,5 +1,6 @@
 #define DATA 11
 #define CLK 12
+#define DWAIT 5
 
 int previousData = LOW;
 int counter = 0;
@@ -46,7 +47,7 @@ void showLeds(int row, int leds[5]) {
   for (int i = 0; i < 5; i++) {
     pushBit(((4 - row) == i) ? HIGH : LOW);
   }
-  delay(4);
+  delay(DWAIT);
 }
 
 void setup() {
