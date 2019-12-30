@@ -1,34 +1,8 @@
 #define DATA 11
 #define CLK 12
-#define DWAIT 5
+#define DWAIT 6
 
 int previousData = LOW;
-int counter = 0;
-int flip = 0;
-
-int image0[5] = {
-  LOW, HIGH, LOW, HIGH, LOW
-};
-int image1[5] = {
-  HIGH, LOW, HIGH, LOW, HIGH
-};
-int image2[5] = {
-  HIGH, LOW, LOW, LOW, HIGH
-};
-int image3[5] = {
-  LOW, HIGH, LOW, HIGH, LOW
-};
-int image4[5] = {
-  LOW, LOW, HIGH, LOW, LOW
-};
-
-int empty[5] = {
-  LOW,
-  LOW,
-  LOW,
-  LOW,
-  LOW,
-};
 
 void pushBit(int data) {
   if (previousData != data) {
@@ -40,14 +14,27 @@ void pushBit(int data) {
   digitalWrite(CLK, LOW);
 }
 
-void showLeds(int row, int leds[5]) {
+void showLeds(int row, char const *leds) {
   for (int i = 0; i < 5; i++) {
-    pushBit(leds[i] == HIGH ? LOW : HIGH);
+    pushBit(leds[i] == '0' ? HIGH : LOW);
   }
   for (int i = 0; i < 5; i++) {
     pushBit(((4 - row) == i) ? HIGH : LOW);
   }
   delay(DWAIT);
+}
+
+void showPicture(
+  char const *firstRow,
+  char const *secondRow,
+  char const *thirdRow,
+  char const *fourthRow,
+  char const *fifthRow) {
+  showLeds(0, firstRow);
+  showLeds(1, secondRow);
+  showLeds(2, thirdRow);
+  showLeds(3, fourthRow);
+  showLeds(4, fifthRow);
 }
 
 void setup() {
@@ -63,24 +50,135 @@ void setup() {
 
 
 void loop() {
-  counter++;
-
-  if (counter > 50) {
-    counter = 0;
-    flip = !flip;
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "01010",
+      "10101",
+      "10001",
+      "01010",
+      "00100"
+    );
   }
 
-  if (flip) {
-    showLeds(0, image0);
-    showLeds(1, image1);
-    showLeds(2, image2);
-    showLeds(3, image3);
-    showLeds(4, image4);
-  } else {
-    showLeds(4, image0);
-    showLeds(3, image1);
-    showLeds(2, image2);
-    showLeds(1, image3);
-    showLeds(0, image4);
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "01010",
+      "01010",
+      "00000",
+      "10001",
+      "01110"
+    );
+  }
+
+  
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "11110",
+      "10001",
+      "10001",
+      "10001",
+      "11110"
+    );
+  }
+
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "11111",
+      "00010",
+      "00100",
+      "01000",
+      "11111"
+    );
+  }
+  
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "11111",
+      "10000",
+      "11110",
+      "10000",
+      "11111"
+    );
+  }
+  
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "01111",
+      "00001",
+      "00001",
+      "10001",
+      "01110"
+    );
+  }
+  
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "10010",
+      "10100",
+      "11000",
+      "10100",
+      "10010"
+    );
+  }
+  
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "10001",
+      "01010",
+      "00100",
+      "00100",
+      "00100"
+    );
+  }
+  
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "00100",
+      "00100",
+      "11111",
+      "00100",
+      "00100"
+    );
+  }
+
+  
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "01111",
+      "00001",
+      "00001",
+      "10001",
+      "01110"
+    );
+  }
+  
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "01110",
+      "10001",
+      "10001",
+      "10001",
+      "01110"
+    );
+  }
+  
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "10001",
+      "10001",
+      "11111",
+      "10001",
+      "10001"
+    );
+  }
+  
+  for (int i = 0; i < 30; i++) {
+    showPicture(
+      "10001",
+      "01010",
+      "00100",
+      "00100",
+      "00100"
+    );
   }
 }
